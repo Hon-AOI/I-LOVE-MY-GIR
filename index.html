@@ -1,59 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Someone Special ❤️</title>
-    <link rel="stylesheet" href="style.css">
+<title>Secret ❤️</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div id="hearts-container"></div>
+<video autoplay muted loop id="bg-video">
+    <source src="videos/background.mp4" type="video/mp4">
+</video>
 
-<div id="login-box">
-    <h1>❤️ A Little Surprise ❤️</h1>
-    <p>Enter the secret word:</p>
+<div class="box">
+    <h1>❤️ Enter the Password ❤️</h1>
 
-    <input type="password" id="password" placeholder="Type here...">
-    <br><br>
-    <button onclick="unlockPage()">Open ❤️</button>
-</div>
+    <input type="password" id="password" placeholder="Password">
 
-<div id="main-content">
+    <button onclick="checkPassword()">Unlock ❤️</button>
 
-    <h1>❤️ I Hope This Makes You Smile ❤️</h1>
-
-    <button onclick="openLetter()">💌 Open My Letter</button>
-
-    <div id="letter" class="hidden">
-        <h2>My Letter 💖</h2>
-
-        <p>
-            I don't really know the perfect words to use, but I know that the time we've spent talking has been special to me. Every conversation and every little moment means a lot. I appreciate getting to know you, and I hope things continue to become even more beautiful. ❤️
-        </p>
-    </div>
-
-    <h2>🎵 Music</h2>
-
-<audio id="music">
-    <source src="music/song.mpeg.mp3" type="audio/mpeg">
-</audio>
-
-<button onclick="document.getElementById('music').play()">
-    ▶ Play Music
-</button>
-
-    <h2>🖼️ Gallery</h2>
-
-    <div class="gallery">
-        <img src="images/pic1.jpg.jpeg">
-        <img src="images/pic2.jpg.jpeg">
-        <img src="images/pic3.jpg.jpeg">
-    </div>
-
+    <p id="error"></p>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
