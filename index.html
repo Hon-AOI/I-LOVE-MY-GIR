@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For my lover ❤️</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="password-page">
+
+    <!-- Background video -->
+    <video
+        class="intro-video"
+        autoplay
+        muted
+        loop
+        playsinline>
+
+        <source src="videos/intro.mp4" type="video/mp4">
+
+    </video>
+
+
+    <!-- Dark overlay -->
+    <div class="video-overlay"></div>
+
+
+    <!-- Floating hearts -->
+    <div class="hearts">
+
+        <span>❤️</span>
+        <span>💕</span>
+        <span>❤️</span>
+        <span>💗</span>
+        <span>💕</span>
+        <span>❤️</span>
+
+    </div>
+
+
+    <!-- Password content -->
+    <main
+        class="password-container"
+        id="passwordContainer">
+
+        <div class="heart-icon">
+            ❤️
+        </div>
+
+        <h1>
+            For My lover
+        </h1>
+
+        <p>
+            I made a little world just for you.
+        </p>
+
+        <p class="question">
+            Only my girl knows the way in ❤️
+        </p>
+
+
+        <form id="passwordForm" class="password-box" onsubmit="unlockLove(); return false;">
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter the secret password..."
+                autocomplete="off"
+            >
+
+            <button type="submit">
+                Enter ❤️
+            </button>
+
+        </form>
+
+
+        <p id="errorMessage"></p>
+
+        <!-- Autoplay prompt shown only if browser blocks autoplay -->
+        <div id="autoplayPrompt" style="display:none;align-items:center;justify-content:center;gap:12px;margin-top:12px;">
+            <button id="autoplayButton" style="padding:10px 16px;border-radius:8px;border:none;cursor:pointer;">Tap to play our song 🎵</button>
+            <span style="font-size:14px;opacity:0.9;">(Required by some browsers)</span>
+        </div>
+
+    </main>
+
+
+    <!-- Explosion transition -->
+    <div id="explosion"></div>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

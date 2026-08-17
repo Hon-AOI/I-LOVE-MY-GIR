@@ -1,0 +1,1645 @@
+/* =========================================
+   GENERAL
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', Georgia, "Times New Roman", serif;
+    min-height: 100vh;
+    color: #f6f6f7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* Headings use an elegant serif */
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #fff;
+    letter-spacing: 0.2px;
+    margin: 0.3em 0;
+}
+
+p, li, .password-container p, .song-description, .gallery-intro, .video-caption p, .letter-part, .final-love p, .signature {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    color: #f0eef0;
+    font-style: italic;
+}
+
+
+/* =========================================
+   PASSWORD PAGE
+========================================= */
+
+.password-page {
+    position: relative;
+    min-height: 100vh;
+    background: #000;
+    overflow: hidden;
+}
+
+
+/* Background video */
+
+.intro-video {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+}
+
+
+/* Dark overlay */
+
+.video-overlay {
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.80),
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.88)
+        );
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   PASSWORD CONTENT
+========================================= */
+
+.password-container {
+    position: relative;
+
+    z-index: 3;
+
+    width: min(90%, 650px);
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    transition:
+        transform 0.8s ease,
+        opacity 0.8s ease;
+}
+
+
+/* Heart */
+
+.heart-icon {
+    font-size: 75px;
+
+    animation: heartbeat 1.5s infinite;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(255, 255, 255, 0.4)
+        );
+}
+
+
+/* Main title */
+
+.password-container h1 {
+    font-size:
+        clamp(38px, 8vw, 70px);
+
+    line-height: 1.05;
+
+    margin: 20px 0;
+
+    text-shadow:
+        0 0 20px
+        rgba(255, 255, 255, 0.3);
+}
+
+
+/* Description */
+
+.password-container p {
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    opacity: 0.9;
+}
+
+
+.question {
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   PASSWORD INPUT
+========================================= */
+
+.password-box {
+    display: flex;
+
+    gap: 10px;
+
+    width: 100%;
+
+    max-width: 520px;
+
+    margin-top: 25px;
+}
+
+
+.password-box input {
+    flex: 1;
+
+    padding: 17px 22px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.3);
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(15px);
+
+    color: white;
+
+    outline: none;
+
+    font-size: 16px;
+}
+
+
+.password-box input::placeholder {
+    color: #ddd;
+}
+
+
+.password-box input:focus {
+    border-color: white;
+
+    box-shadow:
+        0 0 20px
+        rgba(255, 255, 255, 0.2);
+}
+
+
+/* Enter button */
+
+.password-box button {
+    border: none;
+
+    padding: 16px 27px;
+
+    border-radius: 50px;
+
+    background: white;
+
+    color: #111;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.password-box button:hover {
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 30px
+        rgba(255, 255, 255, 0.5);
+}
+
+
+/* Wrong password */
+
+#errorMessage {
+    color: #ff8fa3;
+
+    margin-top: 15px;
+
+    min-height: 25px;
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.hearts span {
+    position: fixed;
+
+    bottom: -50px;
+
+    z-index: 2;
+
+    font-size: 25px;
+
+    animation:
+        floatHeart
+        8s linear infinite;
+}
+
+
+.hearts span:nth-child(1) {
+    left: 10%;
+    animation-delay: 1s;
+}
+
+
+.hearts span:nth-child(2) {
+    left: 25%;
+    animation-delay: 4s;
+}
+
+
+.hearts span:nth-child(3) {
+    left: 45%;
+    animation-delay: 2s;
+}
+
+
+.hearts span:nth-child(4) {
+    left: 65%;
+    animation-delay: 5s;
+}
+
+
+.hearts span:nth-child(5) {
+    left: 80%;
+    animation-delay: 3s;
+}
+
+
+.hearts span:nth-child(6) {
+    left: 90%;
+    animation-delay: 6s;
+}
+
+
+/* =========================================
+   EXPLOSION
+========================================= */
+
+#explosion {
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    width: 20px;
+    height: 20px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    z-index: 100;
+
+    pointer-events: none;
+}
+
+
+#explosion.active {
+    animation:
+        explode
+        1.3s ease-out forwards;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+@keyframes explode {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(50);
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(150);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .password-container {
+        width: 90%;
+    }
+
+
+    .password-container h1 {
+        font-size: 42px;
+    }
+
+
+    .password-box {
+        flex-direction: column;
+    }
+
+
+    .password-box button {
+        width: 100%;
+    }
+
+
+    .password-box input {
+        width: 100%;
+    }
+
+}
+/* =========================================
+   SONG PAGE
+========================================= */
+
+.song-page {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #4a0d1d,
+            #18040b,
+            #000
+        );
+
+}
+
+
+/* =========================================
+   SONG CONTAINER
+========================================= */
+
+.song-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(90%, 700px);
+
+    padding:
+        50px 20px;
+
+}
+
+
+/* =========================================
+   MUSIC ICON
+========================================= */
+
+.music-heart {
+
+    font-size: 80px;
+
+    animation:
+        heartbeat 1.5s infinite;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(255,255,255,0.3)
+        );
+
+}
+
+
+/* Small heading */
+
+.small-heading {
+
+    letter-spacing: 5px;
+
+    font-size: 13px;
+
+    opacity: 0.65;
+
+    margin-top: 25px;
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.song-container h1 {
+
+    font-size:
+        clamp(
+            40px,
+            8vw,
+            70px
+        );
+
+    line-height: 1.1;
+
+    margin:
+        15px 0 25px;
+
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.song-description {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    opacity: 0.9;
+
+}
+
+
+/* =========================================
+   MUSIC PLAYER
+========================================= */
+
+.music-player {
+
+    width: min(100%, 450px);
+
+    margin:
+        40px auto;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,0.5);
+
+}
+
+
+/* Album circle */
+
+.album-circle {
+
+    width: 160px;
+
+    height: 160px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 60px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 0 40px
+        rgba(255,255,255,0.08);
+
+    animation:
+        rotate 10s linear infinite;
+
+}
+
+
+.music-player h2 {
+
+    margin:
+        25px 0;
+
+    font-size: 24px;
+
+}
+
+
+/* Audio player */
+
+.music-player audio {
+
+    width: 100%;
+
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.floating-hearts {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+
+.floating-hearts span {
+
+    position: absolute;
+
+    bottom: -60px;
+
+    font-size: 25px;
+
+    opacity: 0;
+
+    animation:
+        floatSongHeart
+        9s linear infinite;
+
+}
+
+
+.floating-hearts span:nth-child(1) {
+
+    left: 10%;
+
+    animation-delay: 0s;
+
+}
+
+
+.floating-hearts span:nth-child(2) {
+
+    left: 30%;
+
+    animation-delay: 2s;
+
+}
+
+
+.floating-hearts span:nth-child(3) {
+
+    left: 50%;
+
+    animation-delay: 4s;
+
+}
+
+
+.floating-hearts span:nth-child(4) {
+
+    left: 70%;
+
+    animation-delay: 1s;
+
+}
+
+
+.floating-hearts span:nth-child(5) {
+
+    left: 90%;
+
+    animation-delay: 5s;
+
+}
+
+
+/* =========================================
+   SONG ANIMATIONS
+========================================= */
+
+@keyframes floatSongHeart {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(0.7);
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: 0.8;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.2);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+@keyframes rotate {
+
+    from {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE SONG PAGE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .song-container {
+
+        padding:
+            40px 15px;
+
+    }
+
+
+    .music-heart {
+
+        font-size: 65px;
+
+    }
+
+
+    .song-description {
+
+        font-size: 16px;
+
+    }
+
+
+    .music-player {
+
+        padding:
+            25px 20px;
+
+    }
+
+
+    .album-circle {
+
+        width: 130px;
+
+        height: 130px;
+
+        font-size: 50px;
+
+    }
+
+}
+/* =========================================
+   LOVE LETTER PAGE
+========================================= */
+
+.letter-page {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    background: #000;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================
+   BACKGROUND PHOTO
+========================================= */
+
+.letter-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    background-image:
+        url("../images/her-photo.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    z-index: 0;
+
+    transform: scale(1.03);
+
+}
+
+
+/* Dark overlay */
+
+.letter-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.78)
+        );
+
+    z-index: 1;
+
+}
+
+
+/* =========================================
+   LETTER CONTAINER
+========================================= */
+
+.letter-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(90%, 850px);
+
+    margin: auto;
+
+    padding:
+        80px 0 100px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   TOP HEART
+========================================= */
+
+.letter-top-heart {
+
+    font-size: 65px;
+
+    animation:
+        heartbeat 1.5s infinite;
+
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.letter-label {
+
+    margin-top: 20px;
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    opacity: 0.7;
+
+}
+
+
+/* =========================================
+   LETTER TITLE
+========================================= */
+
+.letter-container h1 {
+
+    font-size:
+        clamp(
+            42px,
+            8vw,
+            75px
+        );
+
+    margin:
+        20px 0 60px;
+
+    font-style: italic;
+
+}
+
+
+/* =========================================
+   LETTER CONTENT
+========================================= */
+
+.letter-content {
+
+    width: 100%;
+
+    max-width: 750px;
+
+    margin: auto;
+
+    text-align: left;
+
+}
+
+
+/* =========================================
+   LETTER PARAGRAPHS
+========================================= */
+
+.letter-part {
+
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+
+    margin-bottom: 35px;
+
+    font-size:
+        clamp(
+            17px,
+            2vw,
+            21px
+        );
+
+    line-height: 2;
+
+    text-shadow:
+        0 2px 10px
+        rgba(0,0,0,0.8);
+
+}
+
+
+/* Paragraph becomes visible */
+
+.letter-part.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================
+   FINAL LOVE MESSAGE
+========================================= */
+
+.final-love {
+
+    text-align: center;
+
+    margin-top: 60px;
+
+}
+
+
+.final-love p {
+
+    margin-bottom: 30px;
+
+}
+
+
+.final-love h2 {
+
+    font-size:
+        clamp(
+            28px,
+            5vw,
+            48px
+        );
+
+    line-height: 1.5;
+
+    margin-bottom: 45px;
+
+    text-shadow:
+        0 0 25px
+        rgba(255,255,255,0.3);
+
+}
+
+
+.signature {
+
+    font-size: 20px;
+
+    font-style: italic;
+
+}
+
+
+/* =========================================
+   NEXT BUTTON
+========================================= */
+
+.next-button {
+
+    border: none;
+
+    padding:
+        17px 30px;
+
+    border-radius: 50px;
+
+    background: white;
+
+    color: #111;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    margin-top: 35px;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        0.3s;
+
+}
+
+
+/* Button appears after letter */
+
+.next-button.show-button {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.next-button:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    box-shadow:
+        0 10px 35px
+        rgba(255,255,255,0.25);
+
+}
+
+
+/* =========================================
+   MOBILE LETTER
+========================================= */
+
+@media (max-width: 600px) {
+
+    .letter-container {
+
+        padding:
+            60px 0 80px;
+
+    }
+
+
+    .letter-container h1 {
+
+        margin-bottom: 40px;
+
+    }
+
+
+    .letter-part {
+
+        font-size: 17px;
+
+        line-height: 1.9;
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .final-love h2 {
+
+        font-size: 28px;
+
+    }
+
+}
+/* =========================================
+   VIDEOS PAGE
+========================================= */
+
+.videos-page {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #3d0b1b,
+            #15030a 45%,
+            #000
+        );
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================
+   VIDEO CONTAINER
+========================================= */
+
+.videos-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(92%, 1000px);
+
+    margin: auto;
+
+    padding:
+        70px 0 100px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.video-heading-heart {
+
+    font-size: 70px;
+
+    animation:
+        heartbeat 1.5s infinite;
+
+}
+
+
+.video-label {
+
+    margin-top: 20px;
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    opacity: 0.65;
+
+}
+
+
+.videos-container h1 {
+
+    font-size:
+        clamp(
+            42px,
+            8vw,
+            75px
+        );
+
+    margin:
+        15px 0 20px;
+
+}
+
+
+.video-intro {
+
+    max-width: 600px;
+
+    margin:
+        0 auto 55px;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    opacity: 0.85;
+
+}
+
+
+/* =========================================
+   VIDEO CARD
+========================================= */
+
+.video-card {
+
+    width: 100%;
+
+    margin-bottom: 55px;
+
+    padding: 18px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,0.45);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+}
+
+
+.video-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.6);
+
+}
+
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.video-card video {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 600px;
+
+    border-radius: 18px;
+
+    background: #000;
+
+}
+
+
+/* =========================================
+   VIDEO CAPTION
+========================================= */
+
+.video-caption {
+
+    padding:
+        25px 10px 10px;
+
+}
+
+
+.video-caption h2 {
+
+    font-size: 25px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.video-caption p {
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    opacity: 0.75;
+
+}
+
+
+/* =========================================
+   VIDEO FLOATING HEARTS
+========================================= */
+
+.video-hearts {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+}
+
+
+.video-hearts span {
+
+    position: absolute;
+
+    bottom: -60px;
+
+    font-size: 25px;
+
+    opacity: 0;
+
+    animation:
+        videoHeartFloat
+        10s linear infinite;
+
+}
+
+
+.video-hearts span:nth-child(1) {
+
+    left: 10%;
+
+    animation-delay: 1s;
+
+}
+
+
+.video-hearts span:nth-child(2) {
+
+    left: 30%;
+
+    animation-delay: 4s;
+
+}
+
+
+.video-hearts span:nth-child(3) {
+
+    left: 50%;
+
+    animation-delay: 2s;
+
+}
+
+
+.video-hearts span:nth-child(4) {
+
+    left: 70%;
+
+    animation-delay: 6s;
+
+}
+
+
+.video-hearts span:nth-child(5) {
+
+    left: 90%;
+
+    animation-delay: 3s;
+
+}
+
+
+@keyframes videoHeartFloat {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(0.7);
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: 0.8;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.2);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================
+   VIDEO NEXT BUTTON
+========================================= */
+
+.video-next-button {
+
+    opacity: 1;
+
+    transform: none;
+
+    margin-top: 10px;
+
+}
+
+
+/* =========================================
+   MOBILE VIDEOS
+========================================= */
+
+@media (max-width: 600px) {
+
+    .videos-container {
+
+        width: 94%;
+
+        padding:
+            50px 0 70px;
+
+    }
+
+
+    .video-card {
+
+        padding: 10px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .video-card video {
+
+        border-radius: 12px;
+
+    }
+
+
+    .video-caption h2 {
+
+        font-size: 21px;
+
+    }
+
+
+    .video-intro {
+
+        font-size: 16px;
+
+    }
+
+}
+/* =========================================
+   GALLERY PAGE
+========================================= */
+
+.gallery-page {
+    position: relative;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #2b0a12, #0f0406 45%, #000);
+    color: white;
+    overflow-x: hidden;
+}
+
+.gallery-container {
+    position: relative;
+    z-index: 2;
+    width: min(92%, 1100px);
+    margin: auto;
+    padding: 70px 0 100px;
+    text-align: center;
+}
+
+.gallery-container h1 {
+    font-size: clamp(44px, 6vw, 64px);
+}
+
+.gallery-intro {
+    font-size: 20px;
+}
+
+.gallery-label {
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 5px;
+    opacity: 0.75;
+}
+
+.gallery-intro {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.88;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+}
+
+.photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.photo:hover img { transform: scale(1.04); }
+
+.photo-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.95);
+    font-size: 30px;
+    opacity: 0;
+    transition: opacity 0.28s ease;
+    pointer-events: none;
+}
+
+.photo:hover .photo-overlay { opacity: 1; }
